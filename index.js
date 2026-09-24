@@ -53,7 +53,7 @@ async function startBot() {
     if (type !== 'notify') return;
 
     const msg = messages[0];
-    if (!msg.message || msg.key.fromMe) return;
+    if (!msg.message) return;
 
     const jid = msg.key.remoteJid;
     const isGroup = jid?.endsWith('@g.us');
