@@ -57,7 +57,8 @@ async function startBot() {
 
     const jid = msg.key.remoteJid;
     const isGroup = jid?.endsWith('@g.us');
-    if (!isGroup) return; // El bot solo responde dentro de grupos
+    const isPrivate = jid?.endsWith('@s.whatsapp.net');
+    if (!isGroup && !isPrivate) return; // Responde en grupos y chats privados
 
     const imageMessage = msg.message.imageMessage;
     if (!imageMessage) return;
